@@ -1,6 +1,8 @@
 import { Toast } from "./Toast";
+import './sass/main.scss';
 
 class Torrada implements Interfaces.Torrada {
+
   constructor() {
     console.log('Constructor called');
   }
@@ -8,10 +10,28 @@ class Torrada implements Interfaces.Torrada {
   success(message: string): void {
     this.clearInstances();
 
-    const toast = new Toast({ message: message });
+    const toast = new Toast({ message: message, severity: 'success' });
     const body = document.querySelector('body');
 
     body?.appendChild(toast.element);
+  }
+
+  alert(message: string): void {
+    this.clearInstances();
+
+    const toast = new Toast({ message: message, severity: 'alert' });
+    const body = document.querySelector('body');
+
+    body?.appendChild(toast.element)
+  }
+
+  error(message: string): void {
+    this.clearInstances();
+
+    const toast = new Toast({ message: message, severity: 'error' });
+    const body = document.querySelector('body');
+
+    body?.appendChild(toast.element)
   }
 
   clearInstances(): void {
@@ -20,6 +40,7 @@ class Torrada implements Interfaces.Torrada {
       element.remove();
     })
   }
+
 }
 
 const TorradaObject = new Torrada();
@@ -30,15 +51,15 @@ const error = document.getElementById('error');
 
 success?.addEventListener('click', e => {
   e.preventDefault();
-  TorradaObject.success('Roosevelt is an awesome band!!')
+  TorradaObject.success('Roosevelt is an awesome band.')
 })
 
 alert?.addEventListener('click', e => {
   e.preventDefault();
-  TorradaObject.success('Is it?')
+  TorradaObject.alert('Is it?')
 })
 
 error?.addEventListener('click', e => {
   e.preventDefault();
-  TorradaObject.success('No, I do like Coldplay.')
+  TorradaObject.error('No, I do like Coldplay.')
 })

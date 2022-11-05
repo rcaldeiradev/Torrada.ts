@@ -1,0 +1,25 @@
+.torrada {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  border-radius: 5px;
+  font-family: sans-serif;
+  border-width: 2px;
+  border-style: solid;
+  padding: 15px 20px;
+
+  &--success {
+    background-color: #c3ffc3;
+    border-color: #94ff94;
+  }
+
+  &--alert {
+    background-color: #ffedac;
+    border-color: #ffe480;
+  }
+
+  &--error {
+    background-color: #ffc8c8;
+    border-color: #ff8f8f;
+  }
+}

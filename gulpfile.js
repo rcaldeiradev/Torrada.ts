@@ -15,6 +15,17 @@ const compile = function () {
               use: 'ts-loader',
               exclude: /node_modules/,
             },
+            {
+              test: /\.s[ac]ss$/i,
+              use: [
+                // Creates `style` nodes from JS strings
+                "style-loader",
+                // Translates CSS into CommonJS
+                "css-loader",
+                // Compiles Sass to CSS
+                "sass-loader",
+              ],
+            },
           ],
         },
         output: {
@@ -31,5 +42,6 @@ const compile = function () {
 
 gulp.task('default', compile);
 gulp.task('watch', function() {
-  gulp.watch('./src/**/*.ts', compile)
+  gulp.watch('./src/**/*.ts', compile);
+  gulp.watch('./src/sass/**/*.scss', compile)
 });
