@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "noEmitOnError": true,
+    "rootDir": "src",
+    "strict": true,
+    "target": "ES2015",
+  },
+}
